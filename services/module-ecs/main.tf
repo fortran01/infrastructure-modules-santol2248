@@ -31,6 +31,17 @@ terraform {
 
 resource "aws_ecs_cluster" "fargate_cluster" {
   name = "${var.service_name}-example"
+
+  # Capacity providers settings
+  capacity_providers = var.capacity_providers
+  dynamic "default_capacity_provider_strategy" {
+    for_each = var.capacity_provider_strategy
+    content {
+      capacity_provider = default_capacity_provider_strategy.value.capacity_provider
+      weight            = default_capacity_provider_strategy.value.weight
+      base              = default_capacity_provider_strategy.value.base
+    }
+  }
 }
 
 # ---------------------------------------------------------------------------------------------------------------------

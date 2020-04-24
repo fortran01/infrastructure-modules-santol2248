@@ -115,3 +115,32 @@ variable "container_boot_delay_seconds" {
   type        = number
   default     = 0
 }
+
+variable "capacity_provider_strategy" {
+  description = "The capacity provider strategy to use for both ECS cluster and ECS service."
+  type = list(object({
+    capacity_provider = string
+    weight            = number
+    base              = number
+  }))
+  default = [
+    {
+      capacity_provider = "FARGATE_SPOT"
+      weight            = 1
+      base              = 0
+    },
+  ]
+  # Example:
+  # capacity_provider_strategy = [
+  #    {
+  #      capacity_provider = "FARGATE"
+  #      weight            = 1
+  #      base              = 2
+  #    },
+  #    {
+  #      capacity_provider = "FARGATE_SPOT"
+  #      weight            = 2
+  #      base              = null
+  #    },
+  # ]
+}
