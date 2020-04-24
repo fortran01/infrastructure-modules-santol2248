@@ -59,7 +59,7 @@ module "fargate_service" {
 
   desired_number_of_tasks        = var.desired_number_of_tasks
   ecs_task_container_definitions = data.template_file.container_definition.rendered
-  launch_type                    = "FARGATE"
+  # launch_type                    = "FARGATE"
 
   capacity_provider_strategy = var.capacity_provider_strategy
 
