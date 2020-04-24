@@ -16,7 +16,6 @@
 	  },
 	  "portMappings": [{
 		"containerPort": ${container_http_port},
-		"hostPort": ${container_http_port},
 		"protocol": "tcp"
 	  }],
 	  "environment": [
