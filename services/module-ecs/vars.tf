@@ -41,6 +41,18 @@ variable "container_name" {
   default     = "webapp"
 }
 
+variable "container_image" {
+  description = "The name of the container in the ECS Task Definition. This is only useful if you have multiple containers defined in the ECS Task Definition. Otherwise, it doesn't matter."
+  type        = string
+  default     = "gruntwork/docker-test-webapp"
+}
+
+variable "container_version" {
+  description = "The name of the container in the ECS Task Definition. This is only useful if you have multiple containers defined in the ECS Task Definition. Otherwise, it doesn't matter."
+  type        = string
+  default     = "latest"
+}
+
 variable "http_port" {
   description = "The port on which the host and container listens on for HTTP requests"
   type        = number

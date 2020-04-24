@@ -91,8 +91,8 @@ data "template_file" "container_definition" {
   vars = {
     container_name = var.container_name
     # For this example, we run the Docker container defined under examples/example-docker-image.
-    image          = "gruntwork/docker-test-webapp"
-    version        = "latest"
+    image          = var.container_image
+    version        = var.container_version
     server_text    = var.server_text
     aws_region     = var.aws_region
     s3_test_file   = "s3://${aws_s3_bucket.s3_test_bucket.id}/${var.s3_test_file_name}"
