@@ -40,8 +40,7 @@ resource "aws_ecs_cluster" "fargate_cluster" {
 module "fargate_service" {
   # When using these modules in your own templates, you will need to use a Git URL with a ref attribute that pins you
   # to a specific version of the modules, such as the following example:
-  # source = "git::git@github.com:gruntwork-io/module-ecs.git//modules/ecs-service?ref=v1.0.8"
-  source = "../../modules/ecs-service"
+  source = "git::git@github.com:gruntwork-io/module-ecs.git//modules/ecs-service?ref=v0.19.0"
 
   service_name     = var.service_name
   environment_name = var.environment_name
