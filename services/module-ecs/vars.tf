@@ -116,6 +116,14 @@ variable "container_boot_delay_seconds" {
   default     = 0
 }
 
+variable "capacity_providers" {
+  description = "List of short names of one or more capacity providers to associate with the cluster. Valid values are FARGATE and FARGATE_SPOT for Fargate clusters, and the name of a custom capacity provider for EC2 based clusters."
+  type        = list(string)
+  default = [
+    "FARGATE_SPOT",
+  ]
+}
+
 variable "capacity_provider_strategy" {
   description = "The capacity provider strategy to use for both ECS cluster and ECS service."
   type = list(object({

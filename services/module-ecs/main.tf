@@ -61,6 +61,8 @@ module "fargate_service" {
   ecs_task_container_definitions = data.template_file.container_definition.rendered
   launch_type                    = "FARGATE"
 
+  capacity_provider_strategy = var.capacity_provider_strategy
+
   # Network information is necessary for Fargate, as it required VPC type
   ecs_task_definition_network_mode = "awsvpc"
   ecs_service_network_configuration = {
